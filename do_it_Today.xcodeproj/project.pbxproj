@@ -14,8 +14,6 @@
 		5B1CDFCA23C73F9F00740F3A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CDFC923C73F9F00740F3A /* TableViewController.swift */; };
 		5B1CDFCC23C73FDD00740F3A /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CDFCB23C73FDD00740F3A /* AddViewController.swift */; };
 		5B1CDFCE23C73FF700740F3A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CDFCD23C73FF700740F3A /* DetailViewController.swift */; };
-		5B277D0723C89AC300431B33 /* cart.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5B277D0423C89AC300431B33 /* cart.jpg */; };
-		5B277D0823C89AC300431B33 /* pencil.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5B277D0523C89AC300431B33 /* pencil.jpeg */; };
 		5B99143023CC750F009A3D73 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B99142F23CC750F009A3D73 /* MapViewController.swift */; };
 		5B9B029723D18DC9006CCB15 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9B029623D18DC9006CCB15 /* calendar.png */; };
 		5B9B029923D1A033006CCB15 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9B029823D1A033006CCB15 /* clock.png */; };
@@ -33,11 +31,9 @@
 		5B1CDFC923C73F9F00740F3A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		5B1CDFCB23C73FDD00740F3A /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		5B1CDFCD23C73FF700740F3A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		5B277D0423C89AC300431B33 /* cart.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cart.jpg; sourceTree = SOURCE_ROOT; };
-		5B277D0523C89AC300431B33 /* pencil.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pencil.jpeg; sourceTree = SOURCE_ROOT; };
 		5B99142F23CC750F009A3D73 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		5B9B029623D18DC9006CCB15 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = ../../../../Downloads/calendar.png; sourceTree = "<group>"; };
-		5B9B029823D1A033006CCB15 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clock.png; path = ../../../../Downloads/clock.png; sourceTree = "<group>"; };
+		5B9B029623D18DC9006CCB15 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = ../calendar.png; sourceTree = "<group>"; };
+		5B9B029823D1A033006CCB15 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clock.png; path = ../clock.png; sourceTree = "<group>"; };
 		5BCD629323D064FA006A4E7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BECFFE623CF061F00BCF478 /* SearchAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAreaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,10 +68,8 @@
 		5B1CDFB423C73ACF00740F3A /* do_it_Today */ = {
 			isa = PBXGroup;
 			children = (
-				5B277D0423C89AC300431B33 /* cart.jpg */,
 				5B9B029623D18DC9006CCB15 /* calendar.png */,
 				5B9B029823D1A033006CCB15 /* clock.png */,
-				5B277D0523C89AC300431B33 /* pencil.jpeg */,
 				5B1CDFB523C73ACF00740F3A /* AppDelegate.swift */,
 				5B1CDFB723C73ACF00740F3A /* SceneDelegate.swift */,
 				5B1CDFCD23C73FF700740F3A /* DetailViewController.swift */,
@@ -150,12 +144,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B9B029723D18DC9006CCB15 /* calendar.png in Resources */,
-				5B277D0723C89AC300431B33 /* cart.jpg in Resources */,
 				5B1CDFC223C73AD000740F3A /* LaunchScreen.storyboard in Resources */,
 				5BCD629423D064FA006A4E7B /* Main.storyboard in Resources */,
 				5B1CDFBF23C73AD000740F3A /* Assets.xcassets in Resources */,
 				5B9B029923D1A033006CCB15 /* clock.png in Resources */,
-				5B277D0823C89AC300431B33 /* pencil.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
