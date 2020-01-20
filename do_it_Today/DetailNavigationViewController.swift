@@ -10,11 +10,32 @@ import UIKit
 
 class DetailNavigationViewController: UIViewController {
 
+    @IBOutlet var segmentedControl: UISegmentedControl!
+    @IBOutlet var currentLocation: UILabel!
+    @IBOutlet var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        searchBar.isHidden = true
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func segChanged(_ sender: Any) {
+        switch  segmentedControl.selectedSegmentIndex {
+        case 0:
+            searchBar.isHidden = true
+            currentLocation.isHidden = false
+        case 1:
+            searchBar.isHidden = false
+            currentLocation.isHidden = true
+        default:
+            searchBar.isHidden = true
+        }
+    }
+    
+    
+    
+    
     
 
     /*

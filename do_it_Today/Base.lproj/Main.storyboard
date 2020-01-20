@@ -408,9 +408,12 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="27s-bU-sOk">
                                 <rect key="frame" x="0.0" y="104" width="414" height="32"/>
                                 <segments>
-                                    <segment title="First"/>
+                                    <segment title="현재 위치에서"/>
                                     <segment title="위치 검색"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segChanged:" destination="6sg-Hk-ksM" eventType="valueChanged" id="GHQ-12-bVW"/>
+                                </connections>
                             </segmentedControl>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Ztd-iU-JJa">
                                 <rect key="frame" x="0.0" y="135" width="414" height="56"/>
@@ -420,6 +423,12 @@
                                 <rect key="frame" x="0.0" y="222" width="414" height="588"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnC-xi-j6e">
+                                <rect key="frame" x="20" y="135" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -431,19 +440,27 @@
                             <constraint firstAttribute="trailing" secondItem="Ztd-iU-JJa" secondAttribute="trailing" id="hpS-l2-Kju"/>
                             <constraint firstItem="27s-bU-sOk" firstAttribute="width" secondItem="Kjj-D2-qtq" secondAttribute="width" id="mV4-yQ-PXQ"/>
                             <constraint firstItem="Ztd-iU-JJa" firstAttribute="width" secondItem="Kjj-D2-qtq" secondAttribute="width" id="oiN-ZE-hkP"/>
+                            <constraint firstItem="SnC-xi-j6e" firstAttribute="top" secondItem="27s-bU-sOk" secondAttribute="bottom" id="oxL-Fm-Yqv"/>
+                            <constraint firstItem="SnC-xi-j6e" firstAttribute="leading" secondItem="Kjj-D2-qtq" secondAttribute="leadingMargin" id="qEQ-pQ-Icg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SnC-xi-j6e" secondAttribute="trailing" id="xYT-Pt-2Ye"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ksu-Bu-J9H"/>
                     </view>
                     <navigationItem key="navigationItem" id="OY3-LA-Fvh"/>
+                    <connections>
+                        <outlet property="currentLocation" destination="SnC-xi-j6e" id="E5C-dV-0eb"/>
+                        <outlet property="searchBar" destination="Ztd-iU-JJa" id="XwI-YD-nB4"/>
+                        <outlet property="segmentedControl" destination="27s-bU-sOk" id="y98-1y-ahr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zhd-IX-4SL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1928.985507246377" y="1425.6696428571429"/>
         </scene>
-        <!--Do what?-->
+        <!--Chang plan-->
         <scene sceneID="LIO-Fj-lYX">
             <objects>
-                <viewController storyboardIdentifier="AddView" id="6ej-P2-3Mf" customClass="AddViewController" customModule="do_it_Today" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6ej-P2-3Mf" customClass="ChangePlanViewController" customModule="do_it_Today" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j7R-DI-Ad1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -487,9 +504,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8aL-Bl-efs">
                                         <rect key="frame" x="188.66666666666666" y="564" width="37" height="30"/>
                                         <state key="normal" title="Do it!"/>
-                                        <connections>
-                                            <action selector="btnAddItem:" destination="6ej-P2-3Mf" eventType="touchUpInside" id="bJD-cg-V5O"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cl3-FW-ANv">
                                         <rect key="frame" x="212" y="102" width="51" height="45"/>
@@ -501,9 +515,6 @@
                                         <state key="normal" image="calendar" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="large"/>
                                         </state>
-                                        <connections>
-                                            <action selector="openCalender:" destination="6ej-P2-3Mf" eventType="touchUpInside" id="WH6-eH-NQK"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aby-Ri-tge">
                                         <rect key="frame" x="307" y="102" width="51" height="45"/>
@@ -514,9 +525,6 @@
                                         <state key="normal" image="clock" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="large"/>
                                         </state>
-                                        <connections>
-                                            <action selector="openClock:" destination="6ej-P2-3Mf" eventType="touchUpInside" id="mII-V8-M4h"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="년도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BO-Ss-TWe">
                                         <rect key="frame" x="62" y="219" width="30" height="20"/>
@@ -571,13 +579,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cg1-Gq-2e9"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Do what?" id="J01-2q-kQm"/>
-                    <connections>
-                        <outlet property="tfWhatDo" destination="HnH-le-prt" id="gkN-2J-FHn"/>
-                        <outlet property="tfWhereDo" destination="A5W-P3-9xc" id="Iwb-HK-6y6"/>
-                        <outlet property="whenTime" destination="haz-VO-mun" id="wuB-7i-gw7"/>
-                        <outlet property="whenYear" destination="2BO-Ss-TWe" id="cdZ-fy-hFf"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Chang plan" id="J01-2q-kQm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ElZ-95-leP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
