@@ -8,8 +8,8 @@
 import UIKit
 import MapKit
 
-class DetailViewController: UIViewController {
-
+class DetailViewController: UIViewController ,UIScrollViewDelegate{
+    
     var receiveItem = ""
     var receiveMap = ""
     var receiveTime = ""
@@ -22,14 +22,19 @@ class DetailViewController: UIViewController {
     @IBOutlet var remainDay: UILabel!
     @IBOutlet var remainTime: UILabel!
     
+    @IBOutlet var showNavi: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-         mTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true) //타이머를 1초동안 계속 불러옴
-       
+        
         lblItem.text = receiveItem
         mapInform.text = receiveMap
-       
+        mTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true) //타이머를 1초동안 계속 불러옴
+        
+    
     }
+    
+    
     
     override func viewDidDisappear(_ animated: Bool) {
         mTimer?.invalidate()   //뷰를 나가면 타이머 기능 끄기
@@ -44,19 +49,26 @@ class DetailViewController: UIViewController {
         let myTime = timerFormatter.date(from: receiveTime )
         let remain = myTime!.timeIntervalSince(currentTime)
         var cal = Int(remain)
-        if remain == 0{  //타이머가 0일때
-            view.backgroundColor = UIColor.gray
+        if remain <= 0{  //타이머가 0일때 알람기능 사용
+            //view.backgroundColor = UIColor.gray
         }
         else { //타이머가 0이 아닐때
-           
+            
             remainDay.text! = String(Int(remain/86400)) + "일"
             
+            if String(Int(remain/86400)) == "0"{
+                showNavi.isEnabled = true
+            }
+            else {
+                showNavi.isEnabled = false
+            }
             cal = cal % 86400
             remainTime.text = String(Int(cal/3600)) + ":"
             cal = cal % 3600
             remainTime.text = remainTime.text! + String(format : "%02d",Int(cal/60)) + ":" + String(format : "%02d" ,Int(cal%60))
-            view.backgroundColor = UIColor.green
+            //view.backgroundColor = UIColor.green
         }
+       // print(remain)
     }
     
     
@@ -66,8 +78,13 @@ class DetailViewController: UIViewController {
     }
     
     func receiveMap( _ map : MKMapItem){
-        receiveMap = String(map.placemark.coordinate.latitude) + " / "
-            + String(map.placemark.coordinate.longitude)
+        if String(map.name!) == "Unknown Location" {
+            receiveMap = "약속정보 없음"
+        }
+        else{
+            receiveMap = String(map.placemark.coordinate.latitude) + " / "
+                + String(map.placemark.coordinate.longitude)
+        }
     }
     
     func receiveTime( _ day : String,  _ time : String ){
@@ -76,14 +93,19 @@ class DetailViewController: UIViewController {
         print(receiveTime)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     
+        
+        if segue.identifier == "sgshownavi"{
+            
+        }
+        
+        
+     }
+    
+    
 }

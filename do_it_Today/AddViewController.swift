@@ -16,63 +16,49 @@ class AddViewController: UIViewController , UITextFieldDelegate ,SendBackDelegat
     var addToDo = ""
     var date = Date()
     var address = ""
-
-    //var myMapItem = MKPointAnnotation()
+    var addItem = MKMapItem()
     
-   // let formatter1 = DateFormatter()
     let formatter2 = DateFormatter()
     let chckTimeError = DateFormatter()
-  //  @IBOutlet var image: UIImageView!
-  //  @IBOutlet var tfWhoDo: UITextField!
+
   
     @IBOutlet var tfWhereDo: UITextField!
     @IBOutlet var tfWhatDo: UITextField!
-   // @IBOutlet var pickerView: UIPickerView!
     
     @IBOutlet var whenTime: UILabel!
     @IBOutlet var whenYear: UILabel!
     
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return 3
-//    }
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return itemsImageFile[row]
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-//        let imageView = UIImageView(image: UIImage(named: itemsImageFile[row]))
-//        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-//        return imageView
-//    }
-//    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-//        return 100
-//    }
-//    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-//        return 100
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        select = row
-//        image.image = UIImage(named: itemsImageFile[row])
-//    }
-//
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    //    formatter1.dateFormat = "yyyy년MM월d일"
+    
+       //키보드가 textField를 가리는 문제 해결
+        NotificationCenter.default.addObserver(self, selector:
+            #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification,
+            object: nil)
+        NotificationCenter.default.addObserver(self, selector:
+            #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+        
         formatter2.dateFormat = "HH시 mm분"
         chckTimeError.dateFormat = "yyyy년MM월dd일HH시 mm분"
         whenYear.text = formatter1.string(from: Date())
         whenTime.text = formatter2.string(from: Date())
         tfWhereDo.delegate = self
         tfWhatDo.delegate = self
-       
-        // Do any additional setup after loading the view.
+      
     }
+    
+    //키보드가 textField 가리는 문제 해결
+    @objc func keyboardWillShow(_ sender:Notification){
+        self.view.frame.origin.y = -150
+    }
+        
+    @objc func keyboardWillHide(_ sender:Notification){
+        self.view.frame.origin.y = 0
+    }
+    
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -96,7 +82,8 @@ class AddViewController: UIViewController , UITextFieldDelegate ,SendBackDelegat
         
         tfWhereDo.text = ""
         tfWhatDo.text = ""
-        // tfWhenDo.text = ""
+        
+         matchingItems.append(addItem)
         _ =  navigationController?.popViewController(animated: true)
         
     }
@@ -186,10 +173,11 @@ class AddViewController: UIViewController , UITextFieldDelegate ,SendBackDelegat
     }
     
     
-    func dataReceived(data: MKMapItem) {
+    func dataReceived(data: MKMapItem) { //약속장소가 없으면 장소 정보는 "Unkown Location"
         tfWhereDo.text = data.name
+       
+        addItem = data
         //이부분 추가 할 것(mapItem) 추가
-        matchingItems.append(data)
        
        }
     
