@@ -101,7 +101,7 @@ class DetailViewController: UIViewController ,UIScrollViewDelegate{
      
         
         if segue.identifier == "sgshownavi"{
-            
+      
         }
         
         

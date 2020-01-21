@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>App needs location servers for stuff.</string>
+	<string>앱 실행시 위치 정보 접근</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>CFBundleDevelopmentRegion</key>

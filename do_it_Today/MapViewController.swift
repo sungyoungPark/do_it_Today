@@ -39,7 +39,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
        // locationManager.startUpdatingLocation()
        // myMap.showsUserLocation = true
         self.performSerach()
-        // Do any additional setup after loading the view.
     }
     
     

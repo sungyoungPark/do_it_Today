@@ -51,7 +51,6 @@
         <!--Detail Plan-->
         <scene sceneID="e26-ex-zow">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KHs-J9-0Tr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="CEP-98-KSh" customClass="DetailViewController" customModule="do_it_Today" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SC5-jc-EmU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -125,6 +124,7 @@
                         <outlet property="view" destination="SC5-jc-EmU" id="tjB-Wd-s9y"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KHs-J9-0Tr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1928.985507246377" y="506.91964285714283"/>
         </scene>
@@ -415,30 +415,56 @@
                                     <action selector="segChanged:" destination="6sg-Hk-ksM" eventType="valueChanged" id="GHQ-12-bVW"/>
                                 </connections>
                             </segmentedControl>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Ztd-iU-JJa">
-                                <rect key="frame" x="0.0" y="135" width="414" height="56"/>
+                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="Ztd-iU-JJa">
+                                <rect key="frame" x="0.0" y="135" width="414" height="57.666666666666657"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AS6-06-CED">
-                                <rect key="frame" x="0.0" y="222" width="414" height="588"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnC-xi-j6e">
-                                <rect key="frame" x="20" y="135" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="135" width="374" height="21.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AS6-06-CED">
+                                <rect key="frame" x="0.0" y="192.66666666666669" width="414" height="617.33333333333326"/>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0kM-AF-WQV">
+                                <rect key="frame" x="0.0" y="192.66666666666663" width="414" height="210"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="210" id="vYR-CQ-e0o"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="startCell" id="1mW-Tw-x0I">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1mW-Tw-x0I" id="BKX-8R-Osk">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="AS6-06-CED" secondAttribute="trailing" id="1Dc-bJ-CJu"/>
+                            <constraint firstItem="0kM-AF-WQV" firstAttribute="width" secondItem="Ztd-iU-JJa" secondAttribute="width" id="258-MC-23w"/>
+                            <constraint firstItem="Ztd-iU-JJa" firstAttribute="top" secondItem="27s-bU-sOk" secondAttribute="bottom" id="4ye-D7-IMX"/>
                             <constraint firstItem="Ztd-iU-JJa" firstAttribute="leading" secondItem="Kjj-D2-qtq" secondAttribute="leading" id="Eok-Fa-cES"/>
                             <constraint firstItem="27s-bU-sOk" firstAttribute="leading" secondItem="Kjj-D2-qtq" secondAttribute="leading" id="H8Z-W3-cKe"/>
+                            <constraint firstItem="0kM-AF-WQV" firstAttribute="leading" secondItem="Kjj-D2-qtq" secondAttribute="leading" id="R8p-F3-BMN"/>
                             <constraint firstItem="27s-bU-sOk" firstAttribute="top" secondItem="ksu-Bu-J9H" secondAttribute="top" constant="16" id="Tzh-oU-Ypb"/>
+                            <constraint firstItem="AS6-06-CED" firstAttribute="leading" secondItem="Kjj-D2-qtq" secondAttribute="leading" id="UQ1-FV-V16"/>
+                            <constraint firstItem="SnC-xi-j6e" firstAttribute="width" secondItem="Ztd-iU-JJa" secondAttribute="width" multiplier="0.903382" id="YEk-aA-A7N"/>
+                            <constraint firstAttribute="trailing" secondItem="0kM-AF-WQV" secondAttribute="trailing" id="aYv-tm-noo"/>
                             <constraint firstAttribute="trailing" secondItem="27s-bU-sOk" secondAttribute="trailing" id="eKz-8y-bUN"/>
-                            <constraint firstItem="Ztd-iU-JJa" firstAttribute="top" secondItem="27s-bU-sOk" secondAttribute="bottom" id="eqE-9l-XWd"/>
+                            <constraint firstAttribute="bottom" secondItem="AS6-06-CED" secondAttribute="bottom" constant="86" id="eel-TP-eeS"/>
+                            <constraint firstItem="SnC-xi-j6e" firstAttribute="height" secondItem="Ztd-iU-JJa" secondAttribute="height" multiplier="0.375" id="gvn-bD-Icq"/>
                             <constraint firstAttribute="trailing" secondItem="Ztd-iU-JJa" secondAttribute="trailing" id="hpS-l2-Kju"/>
+                            <constraint firstItem="0kM-AF-WQV" firstAttribute="top" secondItem="Ztd-iU-JJa" secondAttribute="bottom" id="kVQ-bP-l47"/>
                             <constraint firstItem="27s-bU-sOk" firstAttribute="width" secondItem="Kjj-D2-qtq" secondAttribute="width" id="mV4-yQ-PXQ"/>
+                            <constraint firstItem="AS6-06-CED" firstAttribute="top" secondItem="Ztd-iU-JJa" secondAttribute="bottom" id="mXr-Nn-eKc"/>
                             <constraint firstItem="Ztd-iU-JJa" firstAttribute="width" secondItem="Kjj-D2-qtq" secondAttribute="width" id="oiN-ZE-hkP"/>
                             <constraint firstItem="SnC-xi-j6e" firstAttribute="top" secondItem="27s-bU-sOk" secondAttribute="bottom" id="oxL-Fm-Yqv"/>
                             <constraint firstItem="SnC-xi-j6e" firstAttribute="leading" secondItem="Kjj-D2-qtq" secondAttribute="leadingMargin" id="qEQ-pQ-Icg"/>
@@ -449,6 +475,8 @@
                     <navigationItem key="navigationItem" id="OY3-LA-Fvh"/>
                     <connections>
                         <outlet property="currentLocation" destination="SnC-xi-j6e" id="E5C-dV-0eb"/>
+                        <outlet property="naviMap" destination="AS6-06-CED" id="rBa-kJ-04p"/>
+                        <outlet property="resultTable" destination="0kM-AF-WQV" id="TaS-oc-azq"/>
                         <outlet property="searchBar" destination="Ztd-iU-JJa" id="XwI-YD-nB4"/>
                         <outlet property="segmentedControl" destination="27s-bU-sOk" id="y98-1y-ahr"/>
                     </connections>

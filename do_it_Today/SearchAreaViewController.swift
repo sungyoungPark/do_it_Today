@@ -38,7 +38,6 @@ class SearchAreaViewController: UIViewController, UITableViewDataSource, UITable
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(searchResults)
         //searchResults[searchResults.startIndex].l
         return searchResults.count
         
