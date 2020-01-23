@@ -12,10 +12,8 @@ import MapKit
 
 class AddViewController: UIViewController , UITextFieldDelegate ,SendBackDelegate {
     
-    var select = 0
     var addToDo = ""
     var date = Date()
-    var address = ""
     var addItem = MKMapItem()
     
     let formatter2 = DateFormatter()
@@ -71,19 +69,11 @@ class AddViewController: UIViewController , UITextFieldDelegate ,SendBackDelegat
     
     @IBAction func btnAddItem(_ sender: UIButton) { //새로운 일정 추가
         
-        addToDo.append(whenYear.text! + " ")
-        addToDo.append(whenTime.text! + " ")
-        toWhen.append(whenYear.text! + whenTime.text!)
-        addToDo.append(tfWhereDo.text! + " ")
-        addToDo.append(tfWhatDo.text!)
-        toDo.append(addToDo)
-        
-        D_day.append( whenYear.text!)
-        
+        let addSchecule = ToDoModel(towhen_year: whenYear.text!, towhen_time: whenTime.text!, towhere: tfWhereDo.text!, towhat: tfWhatDo.text!, matchingItem: addItem)
+
+        toDo.append(addSchecule)
         tfWhereDo.text = ""
         tfWhatDo.text = ""
-        
-         matchingItems.append(addItem)
         _ =  navigationController?.popViewController(animated: true)
         
     }

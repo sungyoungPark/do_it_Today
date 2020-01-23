@@ -286,16 +286,15 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jiN-5u-ADP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jiN-5u-ADP">
                                 <rect key="frame" x="0.0" y="144" width="414" height="752"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="areaCell" id="Ukl-T7-fFV">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ukl-T7-fFV" id="fgG-9A-Nni">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -309,7 +308,11 @@
                         <constraints>
                             <constraint firstItem="R8b-tk-sYT" firstAttribute="leading" secondItem="3UW-zl-bEF" secondAttribute="leading" id="3dZ-OZ-7K8"/>
                             <constraint firstItem="R8b-tk-sYT" firstAttribute="trailing" secondItem="3UW-zl-bEF" secondAttribute="trailing" id="KOj-3v-Ws6"/>
+                            <constraint firstItem="jiN-5u-ADP" firstAttribute="leading" secondItem="RcB-cU-KNF" secondAttribute="leading" id="LGx-w3-yxp"/>
+                            <constraint firstAttribute="bottom" secondItem="jiN-5u-ADP" secondAttribute="bottom" id="WM2-NM-Iwd"/>
+                            <constraint firstItem="jiN-5u-ADP" firstAttribute="top" secondItem="R8b-tk-sYT" secondAttribute="bottom" id="bl5-KW-m8N"/>
                             <constraint firstItem="R8b-tk-sYT" firstAttribute="top" secondItem="3UW-zl-bEF" secondAttribute="top" id="d1v-oP-iZu"/>
+                            <constraint firstAttribute="trailing" secondItem="jiN-5u-ADP" secondAttribute="trailing" id="k8H-Ob-LSU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3UW-zl-bEF"/>
                     </view>
@@ -420,7 +423,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnC-xi-j6e">
-                                <rect key="frame" x="20" y="135" width="374" height="21.666666666666657"/>
+                                <rect key="frame" x="20" y="135" width="44" height="21.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -445,30 +448,37 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfN-aJ-Pqg">
+                                <rect key="frame" x="299" y="832" width="95" height="30"/>
+                                <state key="normal" title="애플맵으로 보기"/>
+                                <connections>
+                                    <action selector="openMapForAppleMap:" destination="6sg-Hk-ksM" eventType="touchUpInside" id="bGD-qq-2K4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="AS6-06-CED" secondAttribute="trailing" id="1Dc-bJ-CJu"/>
                             <constraint firstItem="0kM-AF-WQV" firstAttribute="width" secondItem="Ztd-iU-JJa" secondAttribute="width" id="258-MC-23w"/>
+                            <constraint firstItem="Ztd-iU-JJa" firstAttribute="leading" secondItem="Kjj-D2-qtq" secondAttribute="leading" id="4Wo-p1-V0j"/>
                             <constraint firstItem="Ztd-iU-JJa" firstAttribute="top" secondItem="27s-bU-sOk" secondAttribute="bottom" id="4ye-D7-IMX"/>
-                            <constraint firstItem="Ztd-iU-JJa" firstAttribute="leading" secondItem="Kjj-D2-qtq" secondAttribute="leading" id="Eok-Fa-cES"/>
                             <constraint firstItem="27s-bU-sOk" firstAttribute="leading" secondItem="Kjj-D2-qtq" secondAttribute="leading" id="H8Z-W3-cKe"/>
+                            <constraint firstItem="sfN-aJ-Pqg" firstAttribute="top" secondItem="AS6-06-CED" secondAttribute="bottom" constant="22" id="IsS-bk-J8L"/>
                             <constraint firstItem="0kM-AF-WQV" firstAttribute="leading" secondItem="Kjj-D2-qtq" secondAttribute="leading" id="R8p-F3-BMN"/>
+                            <constraint firstItem="sfN-aJ-Pqg" firstAttribute="trailing" secondItem="Kjj-D2-qtq" secondAttribute="trailingMargin" id="SpQ-Q7-td0"/>
                             <constraint firstItem="27s-bU-sOk" firstAttribute="top" secondItem="ksu-Bu-J9H" secondAttribute="top" constant="16" id="Tzh-oU-Ypb"/>
                             <constraint firstItem="AS6-06-CED" firstAttribute="leading" secondItem="Kjj-D2-qtq" secondAttribute="leading" id="UQ1-FV-V16"/>
-                            <constraint firstItem="SnC-xi-j6e" firstAttribute="width" secondItem="Ztd-iU-JJa" secondAttribute="width" multiplier="0.903382" id="YEk-aA-A7N"/>
                             <constraint firstAttribute="trailing" secondItem="0kM-AF-WQV" secondAttribute="trailing" id="aYv-tm-noo"/>
                             <constraint firstAttribute="trailing" secondItem="27s-bU-sOk" secondAttribute="trailing" id="eKz-8y-bUN"/>
                             <constraint firstAttribute="bottom" secondItem="AS6-06-CED" secondAttribute="bottom" constant="86" id="eel-TP-eeS"/>
                             <constraint firstItem="SnC-xi-j6e" firstAttribute="height" secondItem="Ztd-iU-JJa" secondAttribute="height" multiplier="0.375" id="gvn-bD-Icq"/>
-                            <constraint firstAttribute="trailing" secondItem="Ztd-iU-JJa" secondAttribute="trailing" id="hpS-l2-Kju"/>
                             <constraint firstItem="0kM-AF-WQV" firstAttribute="top" secondItem="Ztd-iU-JJa" secondAttribute="bottom" id="kVQ-bP-l47"/>
                             <constraint firstItem="27s-bU-sOk" firstAttribute="width" secondItem="Kjj-D2-qtq" secondAttribute="width" id="mV4-yQ-PXQ"/>
                             <constraint firstItem="AS6-06-CED" firstAttribute="top" secondItem="Ztd-iU-JJa" secondAttribute="bottom" id="mXr-Nn-eKc"/>
                             <constraint firstItem="Ztd-iU-JJa" firstAttribute="width" secondItem="Kjj-D2-qtq" secondAttribute="width" id="oiN-ZE-hkP"/>
                             <constraint firstItem="SnC-xi-j6e" firstAttribute="top" secondItem="27s-bU-sOk" secondAttribute="bottom" id="oxL-Fm-Yqv"/>
-                            <constraint firstItem="SnC-xi-j6e" firstAttribute="leading" secondItem="Kjj-D2-qtq" secondAttribute="leadingMargin" id="qEQ-pQ-Icg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="SnC-xi-j6e" secondAttribute="trailing" id="xYT-Pt-2Ye"/>
+                            <constraint firstAttribute="trailing" secondItem="Ztd-iU-JJa" secondAttribute="trailing" id="tDf-gZ-8Je"/>
+                            <constraint firstItem="SnC-xi-j6e" firstAttribute="leading" secondItem="Kjj-D2-qtq" secondAttribute="leadingMargin" id="uPd-uP-cZH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ksu-Bu-J9H"/>
                     </view>

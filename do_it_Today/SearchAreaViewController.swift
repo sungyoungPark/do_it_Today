@@ -20,7 +20,6 @@ class SearchAreaViewController: UIViewController, UITableViewDataSource, UITable
     private var searchResults = [MKLocalSearchCompletion]()
     
     var delegate : SendBackDelegate?
-    var resultArea = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

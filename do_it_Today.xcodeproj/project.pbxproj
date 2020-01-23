@@ -14,6 +14,7 @@
 		5B1CDFCA23C73F9F00740F3A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CDFC923C73F9F00740F3A /* TableViewController.swift */; };
 		5B1CDFCC23C73FDD00740F3A /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CDFCB23C73FDD00740F3A /* AddViewController.swift */; };
 		5B1CDFCE23C73FF700740F3A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1CDFCD23C73FF700740F3A /* DetailViewController.swift */; };
+		5B2AC93223D9932D0037DEA9 /* ToDoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2AC93123D9932D0037DEA9 /* ToDoModel.swift */; };
 		5B7D8F4F23D5C800007D4ACA /* DetailNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D8F4E23D5C800007D4ACA /* DetailNavigationViewController.swift */; };
 		5B7D8F5123D5CDD9007D4ACA /* ChangePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D8F5023D5CDD9007D4ACA /* ChangePlanViewController.swift */; };
 		5B99143023CC750F009A3D73 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B99142F23CC750F009A3D73 /* MapViewController.swift */; };
@@ -31,6 +32,7 @@
 		5B1CDFC923C73F9F00740F3A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		5B1CDFCB23C73FDD00740F3A /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		5B1CDFCD23C73FF700740F3A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		5B2AC93123D9932D0037DEA9 /* ToDoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoModel.swift; sourceTree = "<group>"; };
 		5B7D8F4E23D5C800007D4ACA /* DetailNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNavigationViewController.swift; sourceTree = "<group>"; };
 		5B7D8F5023D5CDD9007D4ACA /* ChangePlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePlanViewController.swift; sourceTree = "<group>"; };
 		5B99142F23CC750F009A3D73 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				5B1CDFC323C73AD000740F3A /* Info.plist */,
 				5B7D8F4E23D5C800007D4ACA /* DetailNavigationViewController.swift */,
 				5B7D8F5023D5CDD9007D4ACA /* ChangePlanViewController.swift */,
+				5B2AC93123D9932D0037DEA9 /* ToDoModel.swift */,
 			);
 			path = do_it_Today;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				5B1CDFCA23C73F9F00740F3A /* TableViewController.swift in Sources */,
 				5BECFFE723CF061F00BCF478 /* SearchAreaViewController.swift in Sources */,
 				5B1CDFCE23C73FF700740F3A /* DetailViewController.swift in Sources */,
+				5B2AC93223D9932D0037DEA9 /* ToDoModel.swift in Sources */,
 				5B1CDFCC23C73FDD00740F3A /* AddViewController.swift in Sources */,
 				5B1CDFB823C73ACF00740F3A /* SceneDelegate.swift in Sources */,
 			);

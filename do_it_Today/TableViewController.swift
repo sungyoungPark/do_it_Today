@@ -12,16 +12,13 @@ import MapKit
 //var items = ["책 구매","철수와 약속","스터디 준비하기"]
 //var itemsImageFile = ["cart.jpg","clock.png","pencil.jpeg"]
 
-var toDo = [String]()
-
-var toWho = [String]()
-var toWhen = [String]()
-var toWhere = [String]()
-var toWhat = [String]()
-var matchingItems : [MKMapItem] = [MKMapItem]()
+//var toDo = [String]()
+var toDo = [ToDoModel]()
 
 var D_day = [String]()
 var day = ""
+
+let myDo = ToDoModel()
 
 let formatter1 = DateFormatter()
 
@@ -32,10 +29,6 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         formatter1.dateFormat = "yyyy년MM월d일"
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
@@ -56,7 +49,8 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
         
         // cell.textLabel?.text = toWho[(indexPath as NSIndexPath).row]
-        let startDate = formatter1.date(from: D_day[(indexPath as NSIndexPath).row])
+        //let startDate = formatter1.date(from: D_day[(indexPath as NSIndexPath).row])
+        let startDate = formatter1.date(from: toDo[(indexPath as NSIndexPath).row].toWhen_year)
         let endDate = formatter1.date(from:formatter1.string(from: Date()))!
         let interval = startDate!.timeIntervalSince(endDate)
         
@@ -70,7 +64,8 @@ class TableViewController: UITableViewController {
         }
         
         
-        cell.textLabel?.text = cell.textLabel!.text! + toDo[(indexPath as NSIndexPath).row]
+      //  cell.textLabel?.text = cell.textLabel!.text! + toDo[(indexPath as NSIndexPath).row]
+        cell.textLabel?.text = cell.textLabel!.text! + toDo[(indexPath as NSIndexPath).row].fullSchedule
         //cell.imageView?.image = UIImage(named: itemsImageFile[( indexPath as NSIndexPath).row])
         return cell
     }
@@ -134,19 +129,11 @@ class TableViewController: UITableViewController {
             let cell = sender as! UITableViewCell
             let indexPath = self.tvListView.indexPath(for: cell)
             let detailView = segue.destination as! DetailViewController
-            print(matchingItems)
-            
-            if matchingItems.count == 0 {
-                
-            }
-            
-            //나중에 유저 정보를 class화 해서 class로 넘기는거 구현 할 것
-            detailView.receiveItem(toDo[((indexPath as NSIndexPath?)?.row)!])
-            detailView.receiveTime(day,toWhen[((indexPath as NSIndexPath?)?.row)!] + "00초")
+
+            detailView.receiveItem(toDo[((indexPath as NSIndexPath?)?.row)!].fullSchedule)
+            detailView.receiveTime(day,toDo[((indexPath as NSIndexPath?)?.row)!].toWhen_year + toDo[((indexPath as NSIndexPath?)?.row)!].toWhen_time  + "00초")
             //여기까지 했음
-            print(matchingItems.count)
-            detailView.receiveMap(matchingItems[((indexPath as NSIndexPath?)?.row)!])
-            
+            detailView.receiveMap(toDo[((indexPath as NSIndexPath?)?.row)!].scheduleItem)
             //print(toWhen[((indexPath as NSIndexPath?)?.row)!])
         }
     }
