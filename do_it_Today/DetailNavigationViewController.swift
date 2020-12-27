@@ -29,7 +29,6 @@ class DetailNavigationViewController: UIViewController ,CLLocationManagerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("hi")
         let annotation = MKPointAnnotation()
         annotation.coordinate = destination.placemark.coordinate
         naviMap.addAnnotation(annotation)
@@ -55,15 +54,22 @@ class DetailNavigationViewController: UIViewController ,CLLocationManagerDelegat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
         return searchResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "startCell", for: indexPath)
-        //print(cell.bounds.height)
-        cell.textLabel?.text = searchResults[indexPath.row].title
         
+        cell.textLabel?.text = searchResults[indexPath.row].title
+       
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(searchResults[indexPath.row].title)
+        
+        searchBar.text = searchResults[indexPath.row].title
     }
     
     
@@ -150,6 +156,7 @@ class DetailNavigationViewController: UIViewController ,CLLocationManagerDelegat
                 address += " "
                 address += pm!.thoroughfare!
             }
+            print("address 임")
             print(address)
             self.currentLocation.text = address
             // self.startLocation.text = "시작점 : " + address
@@ -184,10 +191,16 @@ class DetailNavigationViewController: UIViewController ,CLLocationManagerDelegat
             searchBar.isHidden = true
             resultTable.isHidden = true
             currentLocation.isHidden = false
+            naviMap.showsUserLocation = true
+            self.getDirections()
         // self.naviMap.bounds.origin.y = +56
         case 1:
             searchBar.isHidden = false
+            //resultTable.isHidden = false
             currentLocation.isHidden = true
+            
+            naviMap.removeOverlays(naviMap.overlays)  //경로 지우기
+            naviMap.showsUserLocation = false
         //self.naviMap.frame.origin.y = -56
         default:
             searchBar.isHidden = true
